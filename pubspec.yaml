@@ -1,0 +1,47 @@
+name: getstream_chat_poc
+description: "Getstream POC for chats in flutter"
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.3 <4.0.0'
+
+#-----------------PACKAGES-------------------#
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #-----------------UI ELEMENTS-------------------#
+  cupertino_icons: ^1.0.6
+
+  #-----------------STREAM DEPENDENCIES-------------------#
+  stream_chat_flutter: 7.2.0-hotfix.1
+  connectivity_plus: 5.0.2
+  get: ^4.6.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+
+  uses-material-design: true
+
+#-----------------ASSETS-------------------#
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+
+#-----------------FONTS-------------------#
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
