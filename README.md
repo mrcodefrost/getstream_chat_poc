@@ -1,19 +1,95 @@
-# getstream_chat_poc
+# Chat POC V2
 
-Getstream POC for chats in flutter
+A Stream chat integration in Flutter app proof of 
+concept based on stream_chat_flutter package by Stream.
 
-## Getting Started
+### Platforms
 
-This project is a starting point for a Flutter application.
+- Android
+- iOS
 
-A few resources to get you started if this is your first Flutter project:
+### Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter
+- Firebase
+- Stream Chat API (stream_chat_flutter)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+### Installation
+
+1. Clone the repository to your local machine:
+
+  ```bash
+   git clone https://github.com/mrcodefrost/chat_poc_one.git
+  ```
+
+2. Navigate to the project directory:
+
+  ```bash
+   cd chat_poc_one
+  ```
+
+3. Install dependencies by running this command in IDE terminal:
+
+  ```bash
+    flutter pub get
+  ```
+
+4. Set up Firebase:
+
+If you haven't already, [sign in to your Firebase account](https://firebase.google.com/docs/web/setup).
+Install Firebase CLI globally using IDE Terminal:
+
+Log in to Firebase
+  ```bash
+   firebase login
+  ```
+
+Activate Flutterfire CLI
+  ```bash
+   flutter pub global activate flutterfire_cli
+  ```
+
+5. Set up Stream
+
+[Sign in to your free stream account](https://getstream.io/try-for-free/).
+
+- Create a project in developer dashboard and set to development mode
+- Get access to API key and Secret key
+- Each token is unique to the user id, a token generator on the following link will require secret key and user id
+- [Generate unique user tokens](https://getstream.io/chat/docs/flutter-dart/tokens_and_authentication/?language=dart)
+
+
+
+### Configuration
+
+These steps may be required in case of errors
+
+1. Set dependency versions of following in pubspec.yaml
+
+    ```yaml
+     stream_chat_flutter: 7.2.0-hotfix.1
+     connectivity_plus: 5.0.2
+    ```
+
+
+2. Upgrade kotlin version in android/settings.gradle to min 1.9.0
+
+    ```groovy
+     plugins {
+     id "org.jetbrains.kotlin.android" version "1.9.0" apply false
+     }
+    ```
+
+3. Enable multidex support in android by running the command
+
+    ```bash
+     flutter run
+    ```
+
+
+
+### Additional
 
 Basic Docs
 https://getstream.io/chat/docs/flutter-dart/?language=dart
@@ -29,6 +105,7 @@ https://getstream.io/chat/docs/sdk/flutter/guides/token_generation_with_firebase
 
 
 ========CURRENT USERS============
+
 Name : ID
 
 1) Gordon : 123123
