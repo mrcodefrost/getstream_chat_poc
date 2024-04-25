@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getstream_chat_poc/controllers/auth_controller.dart';
-import 'package:getstream_chat_poc/helpers/auth_gate.dart';
 import 'package:getstream_chat_poc/helpers/helpers.dart';
-import 'package:getstream_chat_poc/stream_keys.dart';
+import 'package:getstream_chat_poc/helpers/stream_helpers.dart';
+import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 import '../widgets/widgets_all.dart';
 
@@ -32,7 +32,12 @@ class ProfileScreen extends StatelessWidget {
                 child: Text(user?.name ?? 'No name'),
               ),
               const Divider(),
-              const _SignOutButton(),
+              SignOutButton(
+                onPressed: () async {
+                  final client = StreamChatCore.of(context).client;
+                  await authController.signOut(client);
+                },
+              ),
             ],
           ),
         ),
@@ -41,33 +46,34 @@ class ProfileScreen extends StatelessWidget {
   }
 }
 
-class _SignOutButton extends StatefulWidget {
-  const _SignOutButton({
-    Key? key,
-  }) : super(key: key);
+class SignOutButton extends StatefulWidget {
+  const SignOutButton({
+    super.key,
+    required this.onPressed,
+  });
+
+  final Future<void> Function() onPressed;
 
   @override
-  __SignOutButtonState createState() => __SignOutButtonState();
+  _SignOutButtonState createState() => _SignOutButtonState();
 }
 
-class __SignOutButtonState extends State<_SignOutButton> {
+class _SignOutButtonState extends State<SignOutButton> {
   bool _loading = false;
 
-  Future<void> _signOut() async {
+  void _handleSignOut() async {
     setState(() {
-      _loading = true;
+      _loading = true; // Set loading to true when sign out starts
     });
-
+    // Perform sign out operation
     try {
-      // TODO sign out function here
-
-      await context.signOutCurrentUser;
-      Get.offAll(const AuthGate());
-    } on Exception catch (e, st) {
-      logger.e('Could not sign out', error: e, stackTrace: st);
-      setState(() {
-        _loading = false;
-      });
+      await widget.onPressed();
+    } finally {
+      if (mounted) {
+        setState(() {
+          _loading = false; // Set loading to false when sign out completes
+        });
+      }
     }
   }
 
@@ -76,7 +82,7 @@ class __SignOutButtonState extends State<_SignOutButton> {
     return _loading
         ? const CircularProgressIndicator()
         : TextButton(
-            onPressed: _signOut,
+            onPressed: _handleSignOut,
             child: const Text('Sign out'),
           );
   }

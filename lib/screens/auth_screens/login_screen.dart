@@ -46,12 +46,9 @@ class LoginScreen extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () async {
-                    // TODO login the user
-
                     final client = StreamChatCore.of(context).client;
                     await authController.loginUser(client);
                     Get.offAll(const HomeScreen());
-                    // authController.loginWithPhone(); // logins without password
                   },
                   child: const Text('Login')),
               TextButton(

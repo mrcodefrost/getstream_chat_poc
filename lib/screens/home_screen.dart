@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getstream_chat_poc/helpers/stream_helpers.dart';
 import 'package:getstream_chat_poc/screens/profile_screen.dart';
-import 'package:getstream_chat_poc/stream_keys.dart';
 
 import '../widgets/avatar.dart';
 import 'screens_all.dart';

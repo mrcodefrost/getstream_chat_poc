@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getstream_chat_poc/controllers/auth_controller.dart';
 import 'package:getstream_chat_poc/helpers/auth_gate.dart';
-import 'package:getstream_chat_poc/stream_keys.dart';
+import 'package:getstream_chat_poc/helpers/stream_helpers.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 void main() async {
@@ -29,14 +29,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Stream Chat POC',
       builder: (context, child) => StreamChat(
-        streamChatThemeData: StreamChatThemeData(),
-        client: client,
-        child: child ??
-            const Center(
-              child: Text('Null'),
-            ),
-      ),
-      home: AuthGate(),
+          streamChatThemeData: StreamChatThemeData(),
+          client: client,
+          child: child!),
+      home: const AuthGate(),
     );
   }
 }
