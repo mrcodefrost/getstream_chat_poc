@@ -13,13 +13,4 @@ extension StreamChatContext on BuildContext {
 
   // Fetches the current user
   User? get currentUser => StreamChatCore.of(this).currentUser;
-
-  // TODO check if this is the auth state of current user or
-
-  // Fetches the auth state of current user - Most likely
-  Future<void> get signOutCurrentUser =>
-      StreamChatCore.of(this).client.disconnectUser();
-
-  // Another method
-  // await StreamChatState().client.disconnectUser();
 }

@@ -12,7 +12,6 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = context.currentUser;
     return GetBuilder<AuthController>(builder: (authController) {
       return Scaffold(
         appBar: AppBar(
@@ -25,11 +24,12 @@ class ProfileScreen extends StatelessWidget {
               Hero(
                 tag: 'hero-profile-picture',
                 child: Avatar.large(
-                    url: user?.image ?? Helpers.randomPictureUrl()),
+                    url: context.currentUser?.image ??
+                        Helpers.randomPictureUrl()),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(user?.name ?? 'No name'),
+                child: Text(context.currentUser?.name ?? 'No name'),
               ),
               const Divider(),
               SignOutButton(
@@ -55,7 +55,7 @@ class SignOutButton extends StatefulWidget {
   final Future<void> Function() onPressed;
 
   @override
-  _SignOutButtonState createState() => _SignOutButtonState();
+  State<SignOutButton> createState() => _SignOutButtonState();
 }
 
 class _SignOutButtonState extends State<SignOutButton> {
