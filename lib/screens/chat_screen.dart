@@ -11,14 +11,14 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const StreamChannelHeader(),
+    return const Scaffold(
+      appBar: StreamChannelHeader(),
       body: Column(
         children: <Widget>[
           Expanded(
             child: StreamMessageListView(),
           ),
-          const StreamMessageInput(),
+          StreamMessageInput(),
         ],
       ),
     );

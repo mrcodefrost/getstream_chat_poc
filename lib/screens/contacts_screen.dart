@@ -42,7 +42,7 @@ class _ContactsScreenState extends State<ContactsScreen> {
             child: Text('There are no users'),
           ),
           itemBuilder: (context, users, index, userTile) =>
-              _ContactTile(user: users[index]),
+              ContactTile(user: users[index]),
           loadingBuilder: (context) =>
               const Center(child: CircularProgressIndicator()),
           errorBuilder: (context, e) => DisplayErrorMessage(
@@ -54,11 +54,11 @@ class _ContactsScreenState extends State<ContactsScreen> {
   }
 }
 
-class _ContactTile extends StatelessWidget {
-  const _ContactTile({
-    Key? key,
+class ContactTile extends StatelessWidget {
+  const ContactTile({
+    super.key,
     required this.user,
-  }) : super(key: key);
+  });
 
   final User user;
 
