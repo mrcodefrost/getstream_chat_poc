@@ -14,13 +14,11 @@ class AuthGate extends StatelessWidget {
         stream: StreamChat.of(context).client.state.currentUserStream,
         builder: (context, snapshot) {
           // user is logged in
-
           if (snapshot.hasData) {
             return const HomeScreen();
           }
 
           // user is NOT logged in
-
           else {
             return const LoginOrRegister();
           }

@@ -9,7 +9,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final client = StreamChatClient(apiKey, logLevel: Level.INFO);
   Get.put(AuthController());
-
   // final channel = client.channel('messaging');
   // await client.connectUser(User(id: 'broker-mindit'), userToken);
   // await channel.watch();

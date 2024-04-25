@@ -13,6 +13,7 @@ class ContactsScreen extends StatefulWidget {
 }
 
 class _ContactsScreenState extends State<ContactsScreen> {
+  // TODO filter based on broker assigned + a fixed customer care
   late final _userListController = StreamUserListController(
     client: StreamChatCore.of(context).client,
     limit: 20,

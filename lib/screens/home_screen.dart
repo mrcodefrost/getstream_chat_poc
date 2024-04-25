@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Avatar.small(
                 url: context.currentUserImage,
                 onTap: () {
-                  Get.to(const ProfileScreen());
+                  Get.to(() => const ProfileScreen());
                 },
               ),
             ),

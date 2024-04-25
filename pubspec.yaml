@@ -14,15 +14,16 @@ dependencies:
   flutter:
     sdk: flutter
 
-  #-----------------UI ELEMENTS-------------------#
-  cupertino_icons: ^1.0.6
-
   #-----------------STREAM DEPENDENCIES-------------------#
   stream_chat_flutter: 7.2.0-hotfix.1
   connectivity_plus: 5.0.2
+  photo_manager: ^3.0.0
+
+  #-----------------ADDITIONAL DEPENDENCIES-------------------#
   get: ^4.6.6
   cached_network_image: ^3.3.1
   logger: ^2.2.0
+  cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:

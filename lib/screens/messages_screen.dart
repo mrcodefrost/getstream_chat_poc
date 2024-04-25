@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 import 'screens_all.dart';
@@ -40,15 +41,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
         onRefresh: _channelListController.refresh,
         child: StreamChannelListView(
           controller: _channelListController,
-          onChannelTap: (channel) => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => StreamChannel(
-                channel: channel,
-                child: const ChatScreen(),
-              ),
-            ),
-          ),
+          onChannelTap: (channel) => Get.to(
+              () => StreamChannel(channel: channel, child: const ChatScreen())),
         ),
       ),
     );

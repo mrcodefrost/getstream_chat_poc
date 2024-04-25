@@ -67,7 +67,7 @@ class AuthController extends GetxController {
   Future<void> signOut(StreamChatClient client) async {
     try {
       await client.disconnectUser();
-      Get.offAll(const AuthGate());
+      Get.offAll(() => const AuthGate());
     } catch (e) {
       debugPrint('Error signing out: $e');
     } finally {
