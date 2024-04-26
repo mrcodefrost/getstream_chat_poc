@@ -11,14 +11,31 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: StreamChannelHeader(),
+    return Scaffold(
+      appBar: const StreamChannelHeader(),
       body: Column(
         children: <Widget>[
-          Expanded(
+          const Expanded(
             child: StreamMessageListView(),
           ),
-          StreamMessageInput(),
+          StreamMessageInput(
+            validator: (message) {
+              // returning false disables the button
+              if (message.text?.isNotEmpty == true ||
+                  message.attachments.isNotEmpty) {
+                // If the message contains more than 8 consecutive digits, return false
+                if (message.text?.contains(RegExp(r'\d{7,}')) == true) {
+                  return false;
+                } else {
+                  // Otherwise, return true to indicate that the message is valid
+                  return true;
+                }
+              } else {
+                // If the message is empty and has no attachments, return false
+                return false;
+              }
+            },
+          ),
         ],
       ),
     );
