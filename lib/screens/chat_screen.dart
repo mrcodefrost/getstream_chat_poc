@@ -23,7 +23,7 @@ class _ChatScreenState extends State<ChatScreen> {
               // returning false disables the button
               if (message.text?.isNotEmpty == true ||
                   message.attachments.isNotEmpty) {
-                // If the message contains more than 8 consecutive digits, return false
+                // If the message contains more than 7 consecutive digits, return false
                 if (message.text?.contains(RegExp(r'\d{7,}')) == true) {
                   return false;
                 } else {
