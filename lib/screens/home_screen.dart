@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   int _pageNumber = 0; // original condition
 
-  onPageChange(int newPageNumber) {
+  void onPageChange(int newPageNumber) {
     setState(() {
       _pageNumber = newPageNumber; // new condition updated
     });

@@ -17,7 +17,11 @@ class _ContactsScreenState extends State<ContactsScreen> {
   late final _userListController = StreamUserListController(
     client: StreamChatCore.of(context).client,
     limit: 20,
-    filter: Filter.notEqual('id', StreamChatCore.of(context).currentUser!.id),
+    // filter: Filter.notEqual('id', StreamChatCore.of(context).currentUser!.id),
+    filter: Filter.and([
+      Filter.equal('id', '000000'),
+      // Filter.notEqual('id', StreamChatCore.of(context).currentUser!.id),
+    ]),
   );
 
   @override

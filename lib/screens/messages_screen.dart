@@ -14,6 +14,7 @@ class MessagesScreen extends StatefulWidget {
 class _MessagesScreenState extends State<MessagesScreen> {
   late final _channelListController = StreamChannelListController(
     client: StreamChatCore.of(context).client,
+    // Since 'in' is a keyword in Dart, the filter has an underscore added.
     filter: Filter.in_(
       'members',
       [StreamChat.of(context).currentUser!.id],
