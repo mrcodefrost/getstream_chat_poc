@@ -32,6 +32,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Text(context.currentUser?.name ?? 'No name'),
               ),
               const Divider(),
+              // TODO: Add profile related settings and feeds etc
               SignOutButton(
                 onPressed: () async {
                   final client = StreamChatCore.of(context).client;
