@@ -77,6 +77,8 @@ class ContactTile extends StatelessWidget {
     });
     await channel.watch();
 
+    Get.to(() => StreamChannel(channel: channel, child: const ChatScreen()));
+
     // Navigator.of(context).push(MaterialPageRoute(
     //     builder: (context) =>
     //         StreamChannel(child: ChatScreen(), channel: channel)));
@@ -85,8 +87,6 @@ class ContactTile extends StatelessWidget {
     // part is a callback function that returns the widget you want to navigate to.
     // In this case, it's creating an instance of StreamChannel and
     // passing ChatScreen() and channel as parameters.
-
-    Get.to(() => StreamChannel(channel: channel, child: const ChatScreen()));
 
     // Get.to(ChatScreen());
 

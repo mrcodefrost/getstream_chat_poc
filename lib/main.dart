@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getstream_chat_poc/controllers/auth_controller.dart';
 import 'package:getstream_chat_poc/helpers/auth_gate.dart';
 import 'package:getstream_chat_poc/helpers/stream_helpers.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
+
+import 'controllers/auth_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
