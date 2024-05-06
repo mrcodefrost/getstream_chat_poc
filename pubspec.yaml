@@ -17,6 +17,7 @@ dependencies:
   #-----------------STREAM DEPENDENCIES-------------------#
   stream_chat_flutter: 7.2.0-hotfix.1
   connectivity_plus: 5.0.2
+  stream_chat_persistence: 7.2.0
   photo_manager: ^3.0.0
 
   #-----------------ADDITIONAL DEPENDENCIES-------------------#
