@@ -14,6 +14,7 @@ void main() async {
     connectionMode: ConnectionMode.background,
   );
 
+  // remove this to fix sort for now
   final client = StreamChatClient(apiKey, logLevel: Level.INFO)
     ..chatPersistenceClient = chatPersistentClient;
   Get.put(AuthController());
