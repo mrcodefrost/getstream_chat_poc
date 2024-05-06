@@ -29,7 +29,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Stream Chat POC',
       builder: (context, child) => StreamChat(
-          streamChatThemeData: StreamChatThemeData(),
+          streamChatThemeData: StreamChatThemeData(
+              ownMessageTheme: StreamMessageThemeData(
+                messageBackgroundColor: Colors.red,
+                messageTextStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              otherMessageTheme: StreamMessageThemeData(
+                messageBackgroundColor: Colors.blue,
+                messageTextStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              )),
           client: client,
           child: child!),
       home: const AuthGate(),
