@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getstream_chat_poc/helpers/stream_helpers.dart';
 import 'package:getstream_chat_poc/screens/profile_screen.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../widgets/avatar.dart';
 import 'screens_all.dart';
@@ -16,7 +17,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final pages = const [
     MessagesScreen(),
-    ContactsScreen(),
+    StreamContactsScreen(),
+    PhoneBookScreen(),
   ];
 
   int _pageNumber = 0; // original condition
@@ -26,6 +28,26 @@ class _HomeScreenState extends State<HomeScreen> {
       _pageNumber = newPageNumber; // new condition updated
     });
   }
+
+  Future<void> requestContactsPermission() async {
+    final status = await Permission.contacts.status;
+    if (!status.isGranted) {
+      await Permission.contacts.request();
+    } else if (status.isPermanentlyDenied) {
+      openAppSettings();
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      requestContactsPermission();
+    });
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +79,9 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'Message',
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.contacts), label: 'Contacts'),
+              icon: Icon(Icons.stream), label: 'Stream contacts'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.contacts), label: 'Phone book')
         ],
       ),
     );

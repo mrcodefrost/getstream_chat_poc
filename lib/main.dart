@@ -3,20 +3,19 @@ import 'package:get/get.dart';
 import 'package:getstream_chat_poc/helpers/auth_gate.dart';
 import 'package:getstream_chat_poc/helpers/stream_helpers.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
-import 'package:stream_chat_persistence/stream_chat_persistence.dart';
 
 import 'controllers/auth_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final chatPersistentClient = StreamChatPersistenceClient(
-    logLevel: Level.INFO,
-    connectionMode: ConnectionMode.background,
-  );
+  // final chatPersistentClient = StreamChatPersistenceClient(
+  //   logLevel: Level.INFO,
+  //   connectionMode: ConnectionMode.background,
+  // );
 
   // remove this to fix sort for now
-  final client = StreamChatClient(apiKey, logLevel: Level.INFO)
-    ..chatPersistenceClient = chatPersistentClient;
+  final client = StreamChatClient(apiKey, logLevel: Level.INFO);
+  // ..chatPersistenceClient = chatPersistentClient;
   Get.put(AuthController());
   // final channel = client.channel('messaging');
   // await client.connectUser(User(id: 'broker-mindit'), userToken);

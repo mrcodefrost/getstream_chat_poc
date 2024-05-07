@@ -5,14 +5,14 @@ import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
 import '../widgets/widgets_all.dart';
 
-class ContactsScreen extends StatefulWidget {
-  const ContactsScreen({super.key});
+class StreamContactsScreen extends StatefulWidget {
+  const StreamContactsScreen({super.key});
 
   @override
-  State<ContactsScreen> createState() => _ContactsScreenState();
+  State<StreamContactsScreen> createState() => _StreamContactsScreenState();
 }
 
-class _ContactsScreenState extends State<ContactsScreen> {
+class _StreamContactsScreenState extends State<StreamContactsScreen> {
   // TODO filter based on broker assigned + a fixed customer care
   late final _userListController = StreamUserListController(
     client: StreamChatCore.of(context).client,
