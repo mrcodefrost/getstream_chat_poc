@@ -23,12 +23,12 @@ class AuthController extends GetxController {
       // final client = StreamChatState().client;
       // final client = StreamChatCore.of(context).client;
       await client.connectUser(
-        User(id: registerNumberController.text, extraData: {
-          'name': registerNameController.text,
-          'image': Helpers.randomPictureUrl()
-        }),
-        client.devToken(registerNumberController.text).rawValue,
-      );
+          User(id: registerNumberController.text, extraData: {
+            'name': registerNameController.text,
+            'image': Helpers.randomPictureUrl()
+          }),
+          // client.devToken(registerNumberController.text).rawValue,
+          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZWM4ODFhZTMtYTAxZi00ODAwLWI4N2QtMTIzOTRhNDdhZGY3In0.Dvf-TnKPq-S7QVLbYzKhXrcwZ-ExIq8mQuAlt4C1MC8");
 
       Get.snackbar('Success', 'User added successfully',
           colorText: Colors.green);
@@ -48,7 +48,8 @@ class AuthController extends GetxController {
       // final client = StreamChatCore.of(context).client;
       await client.connectUser(
         User(id: loginNumberController.text),
-        client.devToken(loginNumberController.text).rawValue,
+        // client.devToken(loginNumberController.text).rawValue,
+        "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZWM4ODFhZTMtYTAxZi00ODAwLWI4N2QtMTIzOTRhNDdhZGY3In0.Dvf-TnKPq-S7QVLbYzKhXrcwZ-ExIq8mQuAlt4C1MC8",
       );
 
       Get.snackbar('Success', 'Logged in successfully',

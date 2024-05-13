@@ -44,7 +44,7 @@ class RegisterScreen extends StatelessWidget {
               // User Mobile Number
               TextFormField(
                 controller: authController.registerNumberController,
-                keyboardType: TextInputType.phone,
+                // keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -55,7 +55,7 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 inputFormatters: [
                   Validations.trimSpaces(),
-                  Validations.onlyNumbers(),
+                  // Validations.onlyNumbers(),
                   Validations.emptyValidator(),
                 ],
               ),
